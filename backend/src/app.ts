@@ -9,10 +9,23 @@ import { intiScheduler } from "./services/scheduler.service.ts";
 
 const app = express();
 
-app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true
-}));
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://your-frontend.onrender.com",
+];
+
+app.use(
+    cors({
+        origin: function (origin, callback) {
+            if (!origin || allowedOrigins.includes(origin)) {
+                callback(null, true);
+            } else {
+                callback(new Error("CORS Not Allowed"));
+            }
+        },
+        credentials: true,
+    })
+);
 
 app.use(express.json())
 
