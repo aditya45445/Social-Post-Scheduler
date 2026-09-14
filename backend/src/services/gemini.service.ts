@@ -17,7 +17,7 @@ export async function generatePostContent(
     tone: string
 ) {
     const response = await ai.models.generateContent({
-        model: "gemini-3.7-flash",
+        model: "gemini-3.5-flash",
 
         contents: `
             Generate a social media post based on this prompt:
