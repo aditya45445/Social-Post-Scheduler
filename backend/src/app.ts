@@ -11,7 +11,7 @@ const app = express();
 
 const allowedOrigins = [
     "http://localhost:5173",
-    "https://your-frontend.onrender.com",
+    "https://social-post-scheduler-plum.vercel.app",
 ];
 
 app.use(
